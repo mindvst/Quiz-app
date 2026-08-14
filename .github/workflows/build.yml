@@ -1,0 +1,7 @@
+name: Build Quiz App
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
