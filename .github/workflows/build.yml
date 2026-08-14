@@ -23,8 +23,9 @@ jobs:
           sudo apt-get install -y \
             git zip unzip openjdk-17-jdk \
             autoconf libtool pkg-config \
-            zlib1g-dev libncurses5-dev libncursesw5-dev \
-            libtinfo5 cmake libffi-dev libssl-dev
+            zlib1g-dev libncurses5-dev \
+            libncursesw5-dev libtinfo-dev \
+            cmake libffi-dev libssl-dev
 
       - name: Install Buildozer
         run: |
@@ -36,7 +37,9 @@ jobs:
 
       - name: Install Android SDK tools
         run: |
-          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          sdkmanager "platform-tools" \
+            "platforms;android-35" \
+            "build-tools;35.0.0"
 
       - name: Build APK
         run: buildozer android debug
